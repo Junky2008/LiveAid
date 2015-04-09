@@ -9,7 +9,7 @@ main:
 .PHONY: clean
 
 all:
-  main
+	main
 
 clean:
 	rm main
