@@ -8,8 +8,7 @@ main:
 
 .PHONY: clean
 
-all:
-	main
+all: main
 
 clean:
 	rm main
