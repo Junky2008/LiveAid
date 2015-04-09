@@ -4,7 +4,7 @@ CFLAGS=-I$(IDIR)
 
 
 main:
-	gcc main.cpp -o main $(CFLAGS)
+	$(CC) main.cpp -o main $(CFLAGS)
 
 .PHONY: clean
 
