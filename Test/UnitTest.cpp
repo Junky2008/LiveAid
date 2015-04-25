@@ -22,7 +22,7 @@ TEST_F(UnitTest, true)
 
 TEST_F(UnitTest, double)
 {
-    EXPECT_DOUBLE_EQ(2.0, 2.0);
+    EXPECT_DOUBLE_EQ(3.0, 3.0);
 }
 
 int main (int argc, char* argv[])
