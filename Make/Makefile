@@ -8,7 +8,7 @@ main:
 	$(CC) ../Src/main.cpp -o ../Output/main $(CFLAGS)
 
 test:
-	$(CC) ../Test/UnitTest.cpp -o ../Output/test $(CFLAGS) $(TESTFLAGS)
+	$(CC) ../Test/UnitTest.cpp -o ../Output/UnitTest $(CFLAGS) $(TESTFLAGS)
 
 .PHONY: clean
 
