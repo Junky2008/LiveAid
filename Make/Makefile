@@ -1,14 +1,20 @@
 IDIR =.
 CC=g++
-CFLAGS=-I$(IDIR) -I../Inc
+CFLAGS=-std=c++11 -I$(IDIR) -I../Inc -I../Inc/mosquitto -lmosquittopp -L/usr/local/lib
 TESTFLAGS=-lgtest -lpthread
 
 
-main:
-	$(CC) ../Src/main.cpp -o ../Output/main $(CFLAGS)
+main: mosquittoClient.o
+	$(CC) ../Src/main.cpp ../Output/mosquittoClient.o -o ../Output/main $(CFLAGS)
 
-test:
-	$(CC) ../Test/UnitTest.cpp -o ../Output/UnitTest $(CFLAGS) $(TESTFLAGS)
+test: mosquittoClient.o mosquittoTestClient.o
+	$(CC) ../Test/UnitTest.cpp ../Output/mosquittoClient.o ../Output/mosquittoTestClient.o -o ../Output/UnitTest $(CFLAGS) $(TESTFLAGS)
+
+mosquittoClient.o:
+	$(CC) ../Src/mosquittoClient.cpp -c -o ../Output/mosquittoClient.o $(CFLAGS)
+
+mosquittoTestClient.o:
+	$(CC) ../Test/mosquittoTestClient.cpp -c -o ../Output/mosquittoTestClient.o $(CFLAGS) $(TESTFLAGS)
 
 .PHONY: clean
 
