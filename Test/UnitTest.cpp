@@ -23,14 +23,14 @@ TEST_F(UnitTest, Activity)
 {
     mosquittoClient client(string("TestServer"), string(DEFAULT_SERVER_TOPIC), string(DEFAULT_HOST), DEFAULT_PORT, DEFAULT_TIMEOUT);
     mosquittoTestClient testClient(string("TestClient"), string(DEFAULT_SERVER_TOPIC), string(DEFAULT_HOST), DEFAULT_PORT, DEFAULT_TIMEOUT);
-    int i = 3;
+    int i = 5;
     while(i-- > 0)
     {
         client.loop();
         testClient.loop();
     }
     testClient.sendMessage(string(CHECK_MESSAGE));
-    i = 3;
+    i = 5;
     while(i-- > 0)
     {
         client.loop();
@@ -40,18 +40,18 @@ TEST_F(UnitTest, Activity)
     EXPECT_EQ(ret, ACTIVE_MESSAGE);
 }
 
-TEST_F(UnitTest, double)
+TEST_F(UnitTest, Disconnect)
 {
     mosquittoClient *client = new mosquittoClient(string("TestServer"), string(DEFAULT_SERVER_TOPIC), string(DEFAULT_HOST), DEFAULT_PORT, DEFAULT_TIMEOUT);
     mosquittoTestClient testClient(string("TestClient"), string(DEFAULT_SERVER_TOPIC), string(DEFAULT_HOST), DEFAULT_PORT, DEFAULT_TIMEOUT);
-    int i = 3;
+    int i = 5;
     while(i-- > 0)
     {
         client->loop();
         testClient.loop();
     }
     delete client;
-    i = 3;
+    i = 5;
     while(i-- > 0)
     {
         testClient.loop();
